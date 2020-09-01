@@ -4,6 +4,7 @@ function koneksi()
 	return mysqli_connect("localhost","root","","kuliah");
 }
 
+//Read Mahasiswa
 function query($query)
 {
 	$conn = koneksi();
@@ -20,4 +21,23 @@ function query($query)
 		}
 		return $rows;
 	}
+}
+
+//Add Mahasiswa
+function tambah($data)
+{
+	$conn    = koneksi();
+
+	$nama    = htmlspecialchars($data['nama']);
+	$npm     = htmlspecialchars($data['npm']);
+	$kelas   = htmlspecialchars($data['kelas']);
+	$jurusan = htmlspecialchars($data['jurusan']);
+	$email   = htmlspecialchars($data['email']);
+
+	$query 	 = "INSERT INTO tb_mhs(nama,npm,kelas,jurusan,email)
+							VALUES('$nama','$npm','$kelas','$jurusan','$email')
+							";
+	mysqli_query($conn, $query);
+	echo mysqli_error($conn);
+	return mysqli_affected_rows($conn);
 }
