@@ -14,7 +14,7 @@ if (!isset($_SESSION['login']))
 	<link rel="icon" href="../../assets/img/labamen.jpg">
 	<title>Page Title</title>
 	<link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css">
-	<link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../assets/css/min.css">
 	<style>
 		@font-face {
 			font-family: 'Poppins';

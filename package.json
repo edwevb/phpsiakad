@@ -1,0 +1,39 @@
+{
+  "name": "siakad",
+  "version": "1.0.0",
+  "description": "<p align=\"center\">\r   <a href=\"https://www.php.net/\">\r     <img src=\"https://miro.medium.com/max/4096/1*Y1hq9sHXG26Fyhys81z8rg.png\" alt=\"Logo\" width=\"auto\" height=\"auto\">\r   </a>\r    <h3 align=\"center\">SIAKAD</h3>\r   <p align=\"center\">\r   \tMembangun Sistem Informasi Akademik sederhana dengan PHP native\r     <br/>\r     <a href=\"#\"><strong>Demo »</strong></a>\r   </p>\r </p>",
+  "main": "webpack.mix.js",
+  "scripts": {
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "npm run development -- --watch",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edwevb/phpsiakad.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edwevb/phpsiakad/issues"
+  },
+  "homepage": "https://github.com/edwevb/phpsiakad#readme",
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "laravel-mix": "^5.0.5",
+    "resolve-url-loader": "^3.1.0",
+    "sass": "^1.26.10",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
+  }
+}

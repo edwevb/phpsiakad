@@ -4,8 +4,26 @@
   </a>
    <h3 align="center">SIAKAD</h3>
   <p align="center">
-  	Membangun Sistem Informasi Akademik sederhana dengan PHP native
+  	Membangun Sistem Informasi Akademik sederhana dengan PHP
     <br/>
     <a href="#"><strong>Demo »</strong></a>
   </p>
 </p>
+
+## Build
+
+* [PHP](https://php.net)
+* [Bootstrap](https://getbootstrap.com)
+* [MySQL](https://www.mysql.com)
+
+## Plugin, Package, etc.
+
+* [npm](https://www.npmjs.com/)
+* [Font Awesone](https://php.net)
+* [Laravel-mix](https://laravel-mix.com)
+* [Git](https://git-scm.com)
+* [Sass](https://sass-lang.com)
+
+## Author
+
+- **[Edward Evbert A.](https://edwevb.github.io)**

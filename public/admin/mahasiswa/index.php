@@ -12,7 +12,7 @@ if (isset($_POST['cari']))
 	<div class="mb-4">
 		<form action="" method="POST">
 			<div class="d-flex">
-				<input class="form-control col-md-4 mr-2 keyword" type="text" name="keyword" placeholder="Search here.." autocomplete="off">
+				<input class="form-control col-md-4 mr-2 keyword" type="text" name="keyword" placeholder="Search here.." autocomplete="off" autofocus>
 				<button class="btn btn-info align-items-center px-2 searchBtn" type="submit" name="cari">Search</button>
 			</div>
 		</form>

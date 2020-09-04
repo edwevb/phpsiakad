@@ -149,6 +149,7 @@ function cari($data)
 	WHERE nama LIKE '%$data%' OR
 	npm LIKE '%$data%' OR
 	kelas LIKE '%$data%'
+	ORDER BY nama ASC
 	";
 
 	$result = mysqli_query($conn, $query);
