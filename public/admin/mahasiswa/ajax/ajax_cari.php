@@ -13,7 +13,7 @@
 		<?php if(empty($mahasiswa)) : ?>
 			<tr>
 				<td class="text-center" colspan="5">
-					<p class="lead text-dark">Data Mahasiswa tidak ada!</p>
+					<p class="lead">Data Mahasiswa tidak ada!</p>
 				</td>
 			</tr>
 		<?php endif; ?>

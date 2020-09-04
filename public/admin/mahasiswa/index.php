@@ -1,6 +1,6 @@
 <?php
 require_once("../layouts/header.php");
-$mahasiswa = query("SELECT id, nama, npm FROM tb_mhs ORDER BY nama ASC");
+$mahasiswa = query("SELECT id, nama, npm FROM tb_mhs ORDER BY nama ASC LIMIT 5");
 if (isset($_POST['cari']))
 {
 	$mahasiswa = cari($_POST['keyword']);
@@ -12,7 +12,7 @@ if (isset($_POST['cari']))
 	<div class="mb-4">
 		<form action="" method="POST">
 			<div class="d-flex">
-				<input class="form-control col-md-4 mr-2 keyword" type="text" name="keyword" placeholder="Search here.." autocomplete="off" autofocus>
+				<input class="form-control col-md-4 mr-2 keyword" type="text" name="keyword" placeholder="Search here.." autocomplete="off">
 				<button class="btn btn-info align-items-center px-2 searchBtn" type="submit" name="cari">Search</button>
 			</div>
 		</form>
@@ -28,7 +28,7 @@ if (isset($_POST['cari']))
 				<?php if(empty($mahasiswa)) : ?>
 					<tr>
 						<td class="text-center" colspan="5">
-							<p class="lead text-dark">Data Mahasiswa tidak ada!</p>
+							<p class="lead">Data Mahasiswa tidak ada!</p>
 						</td>
 					</tr>
 				<?php endif; ?>

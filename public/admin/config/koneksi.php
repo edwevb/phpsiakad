@@ -36,8 +36,8 @@ function tambah($data)
 	$email   = htmlspecialchars($data['email']);
 
 	if (empty($nama) || empty($npm) ||
-			empty($kelas) || empty($jurusan) ||
-			empty($email)) 
+		empty($kelas) || empty($jurusan) ||
+		empty($email))
 	{
 		return[
 			'error'	=> true,
@@ -45,8 +45,8 @@ function tambah($data)
 		];
 	}
 	elseif (ctype_space($nama) || ctype_space($npm) ||
-					ctype_space($kelas) || ctype_space($jurusan) || 
-					ctype_space($email))
+		ctype_space($kelas) || ctype_space($jurusan) || 
+		ctype_space($email))
 	{
 		return[
 			'error'	=> true,
@@ -67,9 +67,11 @@ function tambah($data)
 			'pesan' => 'NPM minimal 8 digit!'
 		];
 	}
-
-	$query 	 = "INSERT INTO tb_mhs(nama,npm,kelas,jurusan,email)
-							VALUES('$nama','$npm','$kelas','$jurusan','$email')";
+	$fileName = $_FILES['img']['name'];
+	$fileNewName = uniqid().date("Y_m_d").$fileName;
+	move_uploaded_file($_FILES['img']['tmp_name'], "../../assets/img/".$fileNewName);
+	$query 	 = "INSERT INTO tb_mhs(nama,npm,kelas,jurusan,email,img)
+							VALUES('$nama','$npm','$kelas','$jurusan','$email','$fileNewName')";
 
 	mysqli_query($conn, $query) or die(mysqli_error($conn));
 	return mysqli_affected_rows($conn);
@@ -96,8 +98,8 @@ function edit($data)
 	$email   = htmlspecialchars($data['email']);
 
 	if (empty($nama) || empty($npm) ||
-			empty($kelas) || empty($jurusan) ||
-			empty($email)) 
+		empty($kelas) || empty($jurusan) ||
+		empty($email)) 
 	{
 		return[
 			'error'	=> true,
@@ -105,8 +107,8 @@ function edit($data)
 		];
 	}
 	elseif (ctype_space($nama) || ctype_space($npm) ||
-					ctype_space($kelas) || ctype_space($jurusan) || 
-					ctype_space($email))
+		ctype_space($kelas) || ctype_space($jurusan) || 
+		ctype_space($email))
 	{
 		return[
 			'error'	=> true,
@@ -129,12 +131,12 @@ function edit($data)
 	}
 
 	$query 	 = "UPDATE tb_mhs SET
-							nama    = '$nama',
-							npm     = '$npm',
-							kelas   = '$kelas',
-							jurusan = '$jurusan',
-							email   = '$email'
-							WHERE id = $id";
+	nama    = '$nama',
+	npm     = '$npm',
+	kelas   = '$kelas',
+	jurusan = '$jurusan',
+	email   = '$email'
+	WHERE id = $id";
 
 	mysqli_query($conn, $query) or die(mysqli_error($conn));
 	return mysqli_affected_rows($conn);

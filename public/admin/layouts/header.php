@@ -27,14 +27,13 @@ if (!isset($_SESSION['login']))
 		body{
 			font-family: 'Poppins', Sans-serif;
 		}
-		nav{
+		nav, .modal{
 			background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),
 			url(../../assets/img/bg.jpg) no-repeat bottom fixed;
 			-webkit-background-size: cover;
 			-moz-background-size: cover;
 			-o-background-size: cover;
 			background-size: cover;
-			transition: filter 0.5s;
 		}
 		.nav-link{
 			font-family: 'Righteous', Sans-serif;
@@ -49,8 +48,12 @@ if (!isset($_SESSION['login']))
 			margin-bottom: -1px;
 			color: #DECBA4!important;
 		}
-		h3, th, td, label{
+		h3, th, td, label,p{
 			color: #fff;
+		}
+		.detailImage{
+			object-fit: cover;
+			object-position: center;
 		}
 	</style>
 </head>
@@ -65,7 +68,7 @@ if (!isset($_SESSION['login']))
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
-					<a class="nav-link" href="https://ak-menengah.com/"><i class="fas fa-external-link-alt"></i> Official Labamen</a>
+					<a class="nav-link" href="https://ak-menengah.com/" target="_blank"><i class="fas fa-external-link-alt"></i> Official Labamen</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="../../auth/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
