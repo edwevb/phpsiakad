@@ -70,11 +70,11 @@ function tambah($data)
 	$fileName = $_FILES['img']['name'];
 	$fileNewName = uniqid().date("Y_m_d").$fileName;
 	move_uploaded_file($_FILES['img']['tmp_name'], "../../assets/img/".$fileNewName);
+
 	$query 	 = "INSERT INTO tb_mhs(nama,npm,kelas,jurusan,email,img)
 							VALUES('$nama','$npm','$kelas','$jurusan','$email','$fileNewName')";
 
 	mysqli_query($conn, $query) or die(mysqli_error($conn));
-	return mysqli_affected_rows($conn);
 }
 
 //Delete Mahasiswa
@@ -130,16 +130,36 @@ function edit($data)
 		];
 	}
 
-	$query 	 = "UPDATE tb_mhs SET
-	nama    = '$nama',
-	npm     = '$npm',
-	kelas   = '$kelas',
-	jurusan = '$jurusan',
-	email   = '$email'
-	WHERE id = $id";
+	$fileName = $_FILES['img']['name'];
+	
+	if (empty($fileName))
+	{
+		echo 'error';
+		$query 	 = "UPDATE tb_mhs SET
+							nama    = '$nama',
+							npm     = '$npm',
+							kelas   = '$kelas',
+							jurusan = '$jurusan',
+							email   = '$email'
+							WHERE id = $id";
 
-	mysqli_query($conn, $query) or die(mysqli_error($conn));
-	return mysqli_affected_rows($conn);
+		mysqli_query($conn, $query) or die(mysqli_error($conn));
+	}else{
+
+		$fileNewName = uniqid().date("Y_m_d").$fileName;	
+		move_uploaded_file($_FILES['img']['tmp_name'], "../../assets/img/".$fileNewName);
+
+		$query 	 = "UPDATE tb_mhs SET
+							nama    = '$nama',
+							npm     = '$npm',
+							kelas   = '$kelas',
+							jurusan = '$jurusan',
+							email   = '$email',
+							img     = '$fileNewName'
+							WHERE id = $id";
+
+		mysqli_query($conn, $query) or die(mysqli_error($conn));
+	}
 }
 
 //Search data index
@@ -239,7 +259,6 @@ function register($data)
 		VALUES(null,'$username','$password',null)";
 
 		mysqli_query($conn, $query) or die(mysqli_error($conn));
-		mysqli_affected_rows($conn);
 
 		return[
 			'success'	=> true,

@@ -60,10 +60,11 @@
 
 	<script>
 		//show file name
-		document.querySelector('.custom-file-input').addEventListener('change',function(e){
-	  var fileName = document.getElementById("myInput").files[0].name;
-	  var nextSibling = e.target.nextElementSibling
-	  nextSibling.innerText = fileName
-	})
+		document.querySelector('.custom-file-input')
+		.addEventListener('change',function(e){
+		  var fileName = document.getElementById("myInput").files[0].name;
+		  var nextSibling = e.target.nextElementSibling
+		  nextSibling.innerText = fileName
+		});
 	</script>
 	<?php require_once("../layouts/footer.php"); ?>
