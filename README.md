@@ -29,4 +29,4 @@
 - **[Edward Evbert A.](https://edwevb.github.io)**
 
 ### Clone
-* [https://github.com/edwevb/phpsiakad.git](https://github.com/edwevb/phpsiakad.git)
+[https://github.com/edwevb/phpsiakad.git](https://github.com/edwevb/phpsiakad.git)
