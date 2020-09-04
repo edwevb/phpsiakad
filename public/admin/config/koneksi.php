@@ -73,7 +73,7 @@ function tambah($data)
 	move_uploaded_file($_FILES['img']['tmp_name'], "../../assets/img/".$fileNewName);
 
 	$query 	 = "INSERT INTO tb_mhs(nama,npm,kelas,jurusan,email,img)
-							VALUES('$nama','$npm','$kelas','$jurusan','$email','$fileNewName')";
+	VALUES('$nama','$npm','$kelas','$jurusan','$email','$fileNewName')";
 
 	mysqli_query($conn, $query) or die(mysqli_error($conn));
 }
@@ -137,12 +137,12 @@ function edit($data)
 	{
 		echo 'error';
 		$query 	 = "UPDATE tb_mhs SET
-							nama    = '$nama',
-							npm     = '$npm',
-							kelas   = '$kelas',
-							jurusan = '$jurusan',
-							email   = '$email'
-							WHERE id = $id";
+		nama    = '$nama',
+		npm     = '$npm',
+		kelas   = '$kelas',
+		jurusan = '$jurusan',
+		email   = '$email'
+		WHERE id = $id";
 
 		mysqli_query($conn, $query) or die(mysqli_error($conn));
 	}else{
@@ -151,13 +151,13 @@ function edit($data)
 		move_uploaded_file($_FILES['img']['tmp_name'], "../../assets/img/".$fileNewName);
 
 		$query 	 = "UPDATE tb_mhs SET
-							nama    = '$nama',
-							npm     = '$npm',
-							kelas   = '$kelas',
-							jurusan = '$jurusan',
-							email   = '$email',
-							img     = '$fileNewName'
-							WHERE id = $id";
+		nama    = '$nama',
+		npm     = '$npm',
+		kelas   = '$kelas',
+		jurusan = '$jurusan',
+		email   = '$email',
+		img     = '$fileNewName'
+		WHERE id = $id";
 
 		mysqli_query($conn, $query) or die(mysqli_error($conn));
 	}
@@ -192,19 +192,19 @@ function login($data)
 	$username = htmlspecialchars($data['username']);
 	$password = htmlspecialchars($data['password']);
 
-	$check		= query("SELECT * FROM user WHERE username ='$username'
-		&& password = '$password'");
-	if ($check)
+	if ($user	= query("SELECT * FROM user WHERE username ='$username'"))
 	{
-		$_SESSION['login'] = true;
-		header("location: ../admin/mahasiswa/index.php");
-		exit;
-	}else{
-		return[
-			'error'	=> true,
-			'pesan' => 'Username / Password tidak terdaftar'
-		];
+		if(password_verify($password, $user[0]['password']))
+		{
+			$_SESSION['login'] = true;
+			header("location: ../admin/mahasiswa/index.php");
+			exit;
+		}
 	}
+	return[
+		'error'	=> true,
+		'pesan' => 'Username tidak terdaftar'
+	];
 }
 
 //Register
@@ -213,8 +213,8 @@ function register($data)
 	$conn = koneksi();
 
 	$username    = htmlspecialchars($data['username']);
-	$password    = mysqli_escape_string($conn, $data['password']);
-	$confirm_pwd = mysqli_escape_string($conn, $data['confirm_pwd']);
+	$password    = mysqli_real_escape_string($conn, $data['password']);
+	$confirm_pwd = mysqli_real_escape_string($conn, $data['confirm_pwd']);
 
 	$check_username = query("SELECT username FROM user WHERE username = '$username'");
 
@@ -254,10 +254,10 @@ function register($data)
 			'pesan' => 'Password minimal 6 digit!'
 		];
 	}else{
-		//INSERT
+
 		$new_password = password_hash($password, PASSWORD_DEFAULT);
 		$query = "INSERT INTO user
-		VALUES(null,'$username','$password',null)";
+		VALUES(null,'$username','$new_password',null)";
 
 		mysqli_query($conn, $query) or die(mysqli_error($conn));
 
