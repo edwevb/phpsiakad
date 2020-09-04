@@ -35,15 +35,44 @@ function tambah($data)
 	$jurusan = htmlspecialchars($data['jurusan']);
 	$email   = htmlspecialchars($data['email']);
 
+	if (empty($nama) || empty($npm) ||
+			empty($kelas) || empty($jurusan) ||
+			empty($email)) 
+	{
+		return[
+			'error'	=> true,
+			'pesan' => 'Semua field wajib diisi!'
+		];
+	}
+	elseif (ctype_space($nama) || ctype_space($npm) ||
+					ctype_space($kelas) || ctype_space($jurusan) || 
+					ctype_space($email))
+	{
+		return[
+			'error'	=> true,
+			'pesan' => 'Field tidak boleh diisi spasi kosong!'
+		];
+	}
+	elseif (!filter_var($email, FILTER_VALIDATE_EMAIL))
+	{
+		return[
+			'error'	=> true,
+			'pesan' => 'Email tidak valid!'
+		];
+	}
+	elseif (strlen($npm) != 8 )
+	{
+		return[
+			'error'	=> true,
+			'pesan' => 'NPM minimal 8 digit!'
+		];
+	}
+
 	$query 	 = "INSERT INTO tb_mhs(nama,npm,kelas,jurusan,email)
-	VALUES('$nama','$npm','$kelas','$jurusan','$email')
-	";
+							VALUES('$nama','$npm','$kelas','$jurusan','$email')";
+
 	mysqli_query($conn, $query) or die(mysqli_error($conn));
-	mysqli_affected_rows($conn);
-	return [
-		'success' => true,
-		'pesan' => 'Data berhasil ditambahkan!'
-	];
+	return mysqli_affected_rows($conn);
 }
 
 //Delete Mahasiswa
@@ -58,21 +87,55 @@ function hapus($data)
 function edit($data)
 {
 	$conn    = koneksi();
-	$id	     = $data['id'];
 
+	$id	     = $data['id'];
 	$nama    = htmlspecialchars($data['nama']);
 	$npm     = htmlspecialchars($data['npm']);
 	$kelas   = htmlspecialchars($data['kelas']);
 	$jurusan = htmlspecialchars($data['jurusan']);
 	$email   = htmlspecialchars($data['email']);
 
+	if (empty($nama) || empty($npm) ||
+			empty($kelas) || empty($jurusan) ||
+			empty($email)) 
+	{
+		return[
+			'error'	=> true,
+			'pesan' => 'Semua field wajib diisi!'
+		];
+	}
+	elseif (ctype_space($nama) || ctype_space($npm) ||
+					ctype_space($kelas) || ctype_space($jurusan) || 
+					ctype_space($email))
+	{
+		return[
+			'error'	=> true,
+			'pesan' => 'Field tidak boleh diisi spasi kosong!'
+		];
+	}
+	elseif (!filter_var($email, FILTER_VALIDATE_EMAIL))
+	{
+		return[
+			'error'	=> true,
+			'pesan' => 'Email tidak valid!'
+		];
+	}
+	elseif (strlen($npm) != 8 )
+	{
+		return[
+			'error'	=> true,
+			'pesan' => 'NPM minimal 8 digit!'
+		];
+	}
+
 	$query 	 = "UPDATE tb_mhs SET
-	nama    = '$nama',
-	npm     = '$npm',
-	kelas   = '$kelas',
-	jurusan = '$jurusan',
-	email   = '$email'
-	WHERE id = $id";
+							nama    = '$nama',
+							npm     = '$npm',
+							kelas   = '$kelas',
+							jurusan = '$jurusan',
+							email   = '$email'
+							WHERE id = $id";
+
 	mysqli_query($conn, $query) or die(mysqli_error($conn));
 	return mysqli_affected_rows($conn);
 }

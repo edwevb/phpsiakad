@@ -1,18 +1,18 @@
 <?php
 require_once("../layouts/header.php");
-$mahasiswa = query("SELECT * FROM tb_mhs ORDER BY id ASC");
+$mahasiswa = query("SELECT id, nama, npm FROM tb_mhs ORDER BY nama ASC");
 if (isset($_POST['cari']))
 {
 	$mahasiswa = cari($_POST['keyword']);
 }
 ?>
 <div class="container mt-5">
-	<a class="btn btn-primary float-right" href="input.php"><i class="fas fa-plus"></i> Tambah Data Baru</a>
-	<h3 class="my-5">Data Mahasiswa</h3>
+	<a class="btn btn-info float-right" href="input.php"><i class="fas fa-plus"></i> Tambah Data Baru</a>
+	<h3 class="my-5">Data Asisten Labamen</h3>
 	<div class="mb-4">
 		<form action="" method="POST">
 			<div class="d-flex">
-				<input class="form-control col-md-4 mr-2 keyword" type="text" name="keyword" placeholder="Search here.." autocomplete="off" autofocus>
+				<input class="form-control col-md-4 mr-2 keyword" type="text" name="keyword" placeholder="Search here.." autocomplete="off">
 				<button class="btn btn-info align-items-center px-2 searchBtn" type="submit" name="cari">Search</button>
 			</div>
 		</form>
@@ -24,7 +24,6 @@ if (isset($_POST['cari']))
 					<th scope="col">#</th>
 					<th scope="col">Nama</th>
 					<th scope="col">NPM</th>
-					<th scope="col">KELAS</th>
 				</tr>
 				<?php if(empty($mahasiswa)) : ?>
 					<tr>
@@ -42,15 +41,14 @@ if (isset($_POST['cari']))
 						<td><?php echo $nomor++; ?></td>
 						<td><?php echo $m['nama']; ?></td>
 						<td><?php echo $m['npm']; ?></td>
-						<td><?php echo $m['kelas']; ?></td>
 						<td class="text-center">
-							<a class="btn btn-success col-md" href="detail.php?id=<?= $m['id']; ?>">Detail</a>
+							<a class="btn btn-light col-md" href="detail.php?id=<?= $m['id']; ?>">Detail</a>
 						</td>
 						<td class="text-center">
-							<a class="btn btn-warning col-md" href="edit.php?id=<?= $m['id']; ?>">Edit</a>
+							<a class="btn btn-light col-md" href="edit.php?id=<?= $m['id']; ?>">Edit</a>
 						</td>
 						<td class="text-center">
-							<a class="btn btn-danger col-md" href="delete.php?id=<?= $m['id']; ?>" onclick="return confirm('Hapus data?');">Delete</a>
+							<a class="btn btn-light col-md" href="delete.php?id=<?= $m['id']; ?>" onclick="return confirm('Hapus data?');">Delete</a>
 						</td>
 					</tr>
 				<?php endforeach;  ?>
