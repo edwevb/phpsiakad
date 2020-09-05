@@ -4,7 +4,7 @@
   </a>
    <h3 align="center">SIAKAD</h3>
   <p align="center">
-  	Membangun Sistem Informasi Akademik sederhana dengan PHP
+  	Membangun Sistem Informasi Akademik sederhana dengan PHP (Procedural)
     <br/>
     <a href="#"><strong>Demo »</strong></a>
   </p>
