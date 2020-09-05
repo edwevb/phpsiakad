@@ -30,3 +30,4 @@
 
 ### Clone
 [https://github.com/edwevb/phpsiakad.git](https://github.com/edwevb/phpsiakad.git)
+**[Download ZIP](https://github.com/edwevb/phpsiakad/archive/master.zip)**
