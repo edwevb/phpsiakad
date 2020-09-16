@@ -33,7 +33,7 @@
 				<h1 class="text-danger font-weight-bolder">Data Mahasiswa tidak ada!</h1>
 			</div>
 		<?php }else{ ?>
-			<h3>FORM EDIT ASISTEN</h3>
+			<h3>FORM EDIT MAHASISWA</h3>
 			<div class="text-right">
 				<a class="btn btn-secondary px-5 my-3" href="index.php">Kembali</a>
 			</div>

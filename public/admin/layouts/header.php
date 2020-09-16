@@ -11,7 +11,7 @@ if (!isset($_SESSION['login']))
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="icon" href="../../assets/img/labamen.jpg">
+	<link rel="icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/favicon-32x32.png">
 	<title>Page Title</title>
 	<link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css">
 	<link rel="stylesheet" href="../../assets/css/min.css">
@@ -60,16 +60,13 @@ if (!isset($_SESSION['login']))
 <body class="bg-dark">
 	<nav class="navbar navbar-expand-lg navbar-dark">
 		<a class="navbar-brand ml-2" href="index.php">
-			<img class="rounded-lg" height="150" width="auto" src="../../assets/img/labamen.jpg" alt="logo labamen" style="opacity: 0.6;">
+			<img class="rounded-lg" height="150" width="auto" src="../../assets/img/bg.jpg" alt="logo labamen" style="opacity: 0.6;">
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="outline: 0;border: 0;box-shadow: 0;">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item">
-					<a class="nav-link" href="https://ak-menengah.com/" target="_blank"><i class="fas fa-external-link-alt"></i> Official Labamen</a>
-				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="../../auth/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
 				</li>

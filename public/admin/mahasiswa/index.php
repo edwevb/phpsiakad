@@ -8,7 +8,7 @@ if (isset($_POST['cari']))
 ?>
 <div class="container mt-5">
 	<a class="btn btn-info float-right" href="input.php"><i class="fas fa-plus"></i> Tambah Data Baru</a>
-	<h3 class="my-5">Data Asisten Labamen</h3>
+	<h3 class="my-5">Data Mahasiswa</h3>
 	<div class="mb-4">
 		<form action="" method="POST">
 			<div class="d-flex">

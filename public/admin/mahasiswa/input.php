@@ -20,7 +20,7 @@
 				</button>
 			</div>
 		<?php endif; ?>
-		<h3>FORM INPUT ASISTEN</h3>
+		<h3>FORM INPUT MAHASISWA</h3>
 		<div class="text-right">
 			<a class="btn btn-secondary px-5 my-3" href="index.php">Kembali</a>
 		</div>

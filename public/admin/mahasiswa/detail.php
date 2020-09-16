@@ -28,7 +28,7 @@ $m = detail("SELECT * FROM tb_mhs WHERE id = $id");
 						<h5 class="card-title"><?= $m['nama'] ;?></h5>
 						<h6 class="card-subtitle mb-2 text-muted"><?= $m['email'] ;?></h6>
 						<ul>
-							<li>npm :<?= $m['npm'] ;?></li>
+							<li><?= $m['npm'] ;?></li>
 							<li><?= $m['kelas'] ;?></li>
 							<li><?= $m['jurusan'] ;?></li>
 						</ul>
